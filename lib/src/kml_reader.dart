@@ -230,7 +230,11 @@ class KmlReader {
                 }
 
                 style = geoXml.styles
-                    .firstWhere((element) => element.id == styleUrl);
+                  .cast<GeoStyle?>()
+                  firstWhere(
+                    (element) => element != null && element.id == styleUrl,
+                    orElse: () => null,
+                  );
               }
               break;
           }
