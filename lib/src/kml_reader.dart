@@ -231,7 +231,7 @@ class KmlReader {
 
                 style = geoXml.styles
                   .cast<GeoStyle?>()
-                  firstWhere(
+                  .firstWhere(
                     (element) => element != null && element.id == styleUrl,
                     orElse: () => null,
                   );
